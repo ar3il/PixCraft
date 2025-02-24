@@ -29,24 +29,25 @@ function PhotoUpload({ setResizedImages }) {
                 setResizedImages(data.images); 
             }
         } catch (error) {
-            console.error('שגיאה בהעלאת התמונה', error);
+            console.error('Error uploading image', error);
         }
     };
 
     return (
-        <div style={{ textAlign: 'center', padding: '20px' }}>
-            <h1>העלאת תמונה</h1>
-            <input type="file" accept="image/*" onChange={handleImageChange} />
+        <div>
+            <h1 className='titels'>Photo Uploade</h1>
+            <input type="file" accept="image/*" onChange={handleImageChange} className='upload'/>
             
             {preview && (
                 <div>
-                    <h3>תצוגה מקדימה:</h3>
-                    <img src={preview} alt="תצוגה מקדימה" width="200" />
+                    <h3>Preview</h3>
+                    <img src={preview}  className = "preview" alt="preview"/>
                 </div>
             )}
-
-            <br />
-            <button onClick={handleUpload} disabled={!image}>שלח</button>
+             
+           
+            <button onClick={handleUpload} disabled={!image} className='preview-SmallSize-button'>Preview of possible designs </button>
+            
         </div>
     );
 }

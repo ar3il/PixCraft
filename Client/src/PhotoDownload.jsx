@@ -15,21 +15,21 @@ function PhotoDownload({ resizedImages }) {
             document.body.removeChild(link);
             URL.revokeObjectURL(blobUrl);
         } catch (error) {
-            console.error('שגיאה בהורדת התמונה', error);
+            console.error('Error downloading image', error);
         }
     };
 
     return (
         <div>
+             <h1 className='titels2'>Photo Designs For Dowanload</h1>
             {resizedImages.length > 0 && (
-                <div>
-                    <h3>תמונות להורדה</h3>
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
+                   <div className='final-containar'>
+                    <div className='final-preview'>
                         {resizedImages.map((img, index) => (
-                            <div key={index} style={{ textAlign: 'center' }}>
-                                <img src={img.url} alt={`Size ${img.size}`} width="150" />
+                            <div key={index}>
+                                <img src={img.url} alt={`Size ${img.size}`}  />
                                 <br />
-                                <button onClick={() => downloadImage(img.url, img.size)}>הורד {img.size}px</button>
+                                <button onClick={() => downloadImage(img.url, img.size)}>Dowanload{img.size}px</button>
                             </div>
                         ))}
                     </div>

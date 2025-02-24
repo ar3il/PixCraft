@@ -23,7 +23,7 @@ const sizes = [100, 300, 500];
 
 app.post('/upload', upload.single('image'), async (req, res) => {
     if (!req.file) {
-        return res.status(400).json({ error: 'לא נבחרה תמונה' });
+        return res.status(400).json({ error: 'Image not selected'});
     }
 
     const originalPath = req.file.path;
@@ -47,8 +47,8 @@ app.post('/upload', upload.single('image'), async (req, res) => {
 
         res.json({ images: resizedImages });
     } catch (error) {
-        console.error('שגיאה בעיבוד התמונה:', error);
-        res.status(500).json({ error: 'שגיאה בעיבוד התמונה' });
+        console.error('Error processing the image:', error);
+        res.status(500).json({ error: 'Error processing the image'});
     }
 });
 
